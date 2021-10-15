@@ -1,0 +1,22 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "todo",
+  "main": "code.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "todo"
+  },
+  "keywords": [
+    "todo",
+    "bulma"
+  ],
+  "author": "SergeySP",
+  "license": "MIT",
+  "dependencies": {
+    "bulma": "^0.9.3"
+  }
+}
