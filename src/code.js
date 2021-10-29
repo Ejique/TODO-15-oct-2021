@@ -21,7 +21,12 @@ let todo = [];//создаётся новый массив
 let delete_btns =[];//const - значение котор напрямую не переназначается 
 
 window.onload=()=>{
+    if(localStorage.getItem("todo")){
     todo = JSON.parse(localStorage.getItem('todo'))
+}
+if(todo){
+    drawTodos(todo, ol, delete_btns)
+}
 }
 
 btn.onclick = () => {
@@ -53,26 +58,7 @@ function addTodo(){
  localStorage.setItem("todo", JSON.stringify(todo) )
     ol.innerHTML = "";//команда обнуления значений того. что вводится в строке
     input.value = "";
-    todo.map((item,index)=>{
-        let li = createElement('li', item,"li",ol,'beforeend');
-        li.style.marginTop = "1ms";
-        li.setAttribute("key",index)//key нужен в качестве некого артикула товара
-        let btn_delete = createElement("button","delete","button",li,"beforeend");
-        btn_delete.classList.add('is-danger');
-        btn_delete.classList.add("is-small");
-        btn_delete.style.marginLeft = "3em";
-        delete_btns = [];
-        delete_btns.push(btn_delete);
-        delete_btns.map((btn)=>{  //ф-я удаления кнопки с экрана
-            btn.onclick = () =>{
-                const key = btn.parentNode.getAttribute("key");
-                todo.splice(key, 1)
-                btn.parentNode.remove()
-                }
-            })
-            // })
-
-        })
+  drawTodos(todo, ol, delete_btns);
 }
 
 
