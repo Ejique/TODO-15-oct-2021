@@ -1,3 +1,4 @@
+import Btn from './button';
 import {createElement}from './createElement';
 
 export function drawTodos(todo, ol, delete_btns){
@@ -5,13 +6,15 @@ export function drawTodos(todo, ol, delete_btns){
         let li = createElement('li', item,"li",ol,'beforeend');
         li.style.marginTop = "1ms";
         li.setAttribute("key",index)//key нужен в качестве некого артикула товара
-        let btn_delete = createElement(
-            "button",
-            "",
-            "button",
-            li,
-            "beforeend"
-            );
+        let btn = new Btn("", "button", li, "beforeend")
+        let btn_delete = btn.$createElement()
+        // let btn_delete = createElement(
+        //     "button",
+        //     "",
+        //     "button",
+        //     li,
+        //     "beforeend"
+        //     );
         btn_delete.classList.add('is-danger');
         btn_delete.classList.add("is-small");
         btn_delete.style.marginLeft = "3em";

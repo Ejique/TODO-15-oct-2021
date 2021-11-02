@@ -1,5 +1,5 @@
-import {createElement}from './createElement';
-import{Btn} from './Button';
+import {createElement} from '../createElement';
+
 
 
 export default class Btn{
@@ -10,7 +10,21 @@ export default class Btn{
  this.className = className;
  this.parent = parent;
  this.position = positon;
- this.classColor = classColor
- this.classSize = classSize
+ 
     }
+//какие доп элементы нужны в классе которые нужно использовать:
+// создание самого элемента, 
+// методы добавления классов, 
+// методы добавления стилей
+
+$createElement(){
+    return createElement("button", this.content,this.className, this.parent, 
+    this.position)
+
+}
+$addClasses(element, arrayClasses){
+arrayClasses.map((className)=>{
+    element.classList.add(className)
+})
+}
 }

@@ -3,6 +3,17 @@
 const path = require('path');
 
 module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: "css-loader",
+        options: {
+          url: true,
+        },
+      },
+    ],
+  },
   mode:'development',
   entry: './src/code.js',
   devServer: {
